@@ -49,9 +49,9 @@ const Sidebar = (className:props) => {
       <div className="flex-grow overflow-y-auto">
         {Array.isArray(data) && data.map((item, index) => (
           <div className='flex items-center p-4 hover:bg-gray-700' key={index}>
-            <img src="/path/to/default/image.png" alt="user.png" className="w-10 h-10 rounded-full" /> {/* Replace with actual image if available */}
+            {/* <img src="/path/to/default/image.png" alt="user.png" className="w-10 h-10 rounded-full" /> 
             <span className="ml-4">{item.sender.name}</span>
-            <p className="ml-4">{item.message}</p>
+            <p className="ml-4">{item.message}</p> */}
           </div>
         ))}
       </div>
