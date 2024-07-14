@@ -31,3 +31,17 @@ body {
     text-wrap: balance;
   }
 }
+
+.chat-bg{
+  background-image: url(../public/newbg.png);
+  background-position: center;
+  background-repeat:repeat;
+  background-size: contain;
+  background-color: #0f0f0f;
+}
+
+.input-box 
+  textarea:focus, input:focus{
+    outline: none;
+
+}
