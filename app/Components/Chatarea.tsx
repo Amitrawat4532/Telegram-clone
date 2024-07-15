@@ -108,7 +108,7 @@ const Chatarea: React.FC<Props> = ({ chatId, userName, onBack }) => {
           ))
         )}
       </div>
-      <div className="flex items-center bg-[#212121] p-4">
+      <div className="flex items-center bg-[#212121] p-4 sticky bottom-0">
         <img src={attachment.src} alt="attachment" className="w-6 h-6 mr-2" />
         <input
           type="text"
