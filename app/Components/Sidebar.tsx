@@ -3,39 +3,42 @@
 import React, { useEffect, useState } from 'react';
 import amit from '../../public/amit.jpg';
 
+type ChatData = {
+  id: number;
+  creator: {
+    name: string;
+  };
+};
+
 type Props = {
   className?: string;
   onNameClick: (chatId: number, userName: string) => void;
 };
 
 const Sidebar: React.FC<Props> = ({ className, onNameClick }) => {
-  const [data, setData] = useState<any[]>([]);
+  const [data, setData] = useState<ChatData[]>([]);
   const [activeChatId, setActiveChatId] = useState<number | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      let accumulatedNames: any[] = [];
+      let accumulatedNames: ChatData[] = [];
       let currentPage = 1;
 
       while (accumulatedNames.length < 12) {
         try {
           const res = await fetch(`https://devapi.beyondchats.com/api/get_all_chats?page=${currentPage}`);
-          if (res.ok) {
-            const response = await res.json();
-            const validNames = response.data.data.filter((item: any) => item.creator.name);
-            accumulatedNames = [...accumulatedNames, ...validNames];
-
-            if (response.data.data.length === 0) {
-              break;
-            }
-
-            currentPage += 1;
-          } else {
-            console.error('Failed to fetch data');
+          if (!res.ok) {
             break;
           }
+          
+          const response = await res.json();
+          const validNames = response.data.data.filter((item: ChatData) => item.creator.name);
+          accumulatedNames = [...accumulatedNames, ...validNames];
+
+          if (response.data.data.length === 0) break;
+
+          currentPage += 1;
         } catch (error) {
-          console.error('Error fetching data:', error);
           break;
         }
       }
@@ -52,7 +55,7 @@ const Sidebar: React.FC<Props> = ({ className, onNameClick }) => {
   };
 
   return (
-    <div className={`w-full md:w-1/4 bg-[#212121] text-white flex flex-col mr-[1px] ${className || ''}`}>
+    <div className={`w-full md:w-1/4 bg-[#212121] text-white flex flex-col mr-[1px] ${className ?? ''}`}>
       <div className="flex items-center justify-between p-4 gap-4">
         <button aria-label="Menu">
           <svg width="20px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="#aaaaaa">
@@ -66,12 +69,12 @@ const Sidebar: React.FC<Props> = ({ className, onNameClick }) => {
         />
       </div>
       <div className="flex-grow overflow-y-auto">
-        {data.map((item, index) => (
+        {data.map((item) => (
           <div
             className={`flex items-center p-4 cursor-pointer ${
               activeChatId === item.id ? 'bg-gray-700' : 'hover:bg-gray-700'
             }`}
-            key={index}
+            key={item.id}
             onClick={() => handleClick(item.id, item.creator.name)}
           >
             <img src={amit.src} alt="user" className="w-10 h-10 rounded-full" />

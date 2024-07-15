@@ -29,24 +29,19 @@ const Chatarea: React.FC<Props> = ({ chatId, userName, onBack }) => {
 
   useEffect(() => {
     const fetchMessages = async () => {
-      console.log('Fetching messages for chatId:', chatId);
       try {
         const response = await fetch(`https://devapi.beyondchats.com/api/get_chat_messages?chat_id=${chatId}`);
         if (response.ok) {
           const data = await response.json();
-          console.log('Fetched messages:', data);
           if (data.status === 'success' && Array.isArray(data.data)) {
             setMessages(data.data);
           } else {
-            console.error('Unexpected data format', data);
             setError('Unexpected data format');
           }
         } else {
-          console.error('Failed to fetch messages');
           setError('Failed to fetch messages');
         }
       } catch (error) {
-        console.error('Error fetching messages:', error);
         setError('Error fetching messages');
       }
     };
@@ -70,8 +65,7 @@ const Chatarea: React.FC<Props> = ({ chatId, userName, onBack }) => {
       <div className="flex justify-between items-center w-full p-4 bg-[#212121]">
         <div className="flex items-center">
           <button onClick={onBack} className="md:hidden mr-2">
-        <img src={back.src} alt="back" className="w-6 h-6 mx-2" />
-          
+            <img src={back.src} alt="back" className="w-6 h-6 mx-2" />
           </button>
           <img src="../amit.jpg" alt="user" className="w-10 h-10 rounded-full" />
           <span className="ml-4">{userName}</span>

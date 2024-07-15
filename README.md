@@ -1,37 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Telegram Clone Website
 
-## Getting Started
+A Telegram clone website built using Next.js (latest version) and Tailwind CSS. This project displays a list of users and allows you to view the detailed conversation history of a selected user.
 
-First, run the development server:
+## Table of Contents
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
+- Display a list of users
+- View detailed conversation history upon clicking a user
+- Responsive design
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
+- Node.js (v14.x or later)
+- npm or yarn
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Steps
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/Amitrawat4532/telegram-clone.git
+    cd telegram-clone
+    ```
 
-## Learn More
+2. Install dependencies:
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+3. Run the development server:
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Usage
+After installation, open the application in your browser. You will see a list of users. Click on any user to view their detailed conversation history.
 
-## Deploy on Vercel
+## Contributing
+Contributions are welcome! Please follow these steps:
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add new feature'`).
+5. Push to the branch (`git push origin feature-branch`).
+6. Open a pull request.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Please make sure to update tests as appropriate.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# Telegram-clone
+
