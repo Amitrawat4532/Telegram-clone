@@ -96,12 +96,12 @@ const Chatarea: React.FC<Props> = ({ chatId, userName, onBack }) => {
             >
               <div
                 className={`p-2 rounded-xl text-white max-w-[500px] ${
-                  message.sender_id === 1 ? 'bg-[#766ac8]' : 'bg-gray-500'
+                  message.sender_id === 1 ? 'bg-[#766ac8] ' : 'bg-gray-500'
                 }`}
               >
                 <span>{message.message}</span>
               </div>
-              <span className="text-gray-400 text-xs">
+              <span className="text-gray-400 text-xs mt-[4px]">
                 {formatDate(message.created_at)}
               </span>
             </div>
