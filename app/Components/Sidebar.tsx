@@ -20,6 +20,8 @@ const Sidebar: React.FC<Props> = ({ className, onNameClick }) => {
   const [activeChatId, setActiveChatId] = useState<number | null>(null);
 
   useEffect(() => {
+    // Commenting out actual API call
+    /*
     const fetchData = async () => {
       let accumulatedNames: ChatData[] = [];
       let currentPage = 1;
@@ -47,6 +49,25 @@ const Sidebar: React.FC<Props> = ({ className, onNameClick }) => {
     };
 
     fetchData();
+    */
+
+    // Dummy data
+    const dummyChats: ChatData[] = [
+      { id: 1, creator: { name: 'Alice' } },
+      { id: 2, creator: { name: 'Bob' } },
+      { id: 3, creator: { name: 'Charlie' } },
+      { id: 4, creator: { name: 'Daisy' } },
+      { id: 5, creator: { name: 'Ethan' } },
+      { id: 6, creator: { name: 'Fiona' } },
+      { id: 7, creator: { name: 'George' } },
+      { id: 8, creator: { name: 'Hannah' } },
+      { id: 9, creator: { name: 'Ian' } },
+      { id: 10, creator: { name: 'Jenny' } },
+      { id: 11, creator: { name: 'Kevin' } },
+      { id: 12, creator: { name: 'Luna' } },
+    ];
+
+    setData(dummyChats);
   }, []);
 
   const handleClick = (chatId: number, userName: string) => {

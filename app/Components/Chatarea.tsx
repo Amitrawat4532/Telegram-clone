@@ -28,6 +28,8 @@ const Chatarea: React.FC<Props> = ({ chatId, userName, onBack }) => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    // Commenting out actual API call
+    /*
     const fetchMessages = async () => {
       try {
         const response = await fetch(`https://devapi.beyondchats.com/api/get_chat_messages?chat_id=${chatId}`);
@@ -47,6 +49,30 @@ const Chatarea: React.FC<Props> = ({ chatId, userName, onBack }) => {
     };
 
     fetchMessages();
+    */
+
+    // Dummy messages
+    const dummyMessages: Message[] = [
+      {
+        id: 1,
+        sender_id: 1,
+        message: 'Hey! How are you?',
+        created_at: new Date().toISOString(),
+      },
+      {
+        id: 2,
+        sender_id: 2,
+        message: 'I’m good, thanks! How about you?',
+        created_at: new Date().toISOString(),
+      },
+      {
+        id: 3,
+        sender_id: 1,
+        message: 'Doing great! Working on a new project.',
+        created_at: new Date().toISOString(),
+      },
+    ];
+    setMessages(dummyMessages);
   }, [chatId]);
 
   const formatDate = (dateString: string) => {
